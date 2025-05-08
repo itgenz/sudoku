@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img id="logo" src="logoschool.png" >
+    <script src="script.js"></script>
+    <h1>Sudoku Game</h1>
+    
+    <div class="game-info">
+        <div id="errors">Lỗi: 0/∞</div>
+        <div id="timer">Thời gian: 0s</div>
+    </div>
+    
+    <div class="controls">
+        <select id="difficulty">
+            <option value="1">Dễ</option>
+            <option value="2" selected>Trung bình</option>
+            <option value="3">Khó</option>
+        </select>
+        <button id="new-game">Game mới</button>
+    </div>
+    
+    <div id="digits"></div>
+    <div id="board"></div>
+
+</body>
+</html>

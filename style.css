@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    margin-bottom: 20px;
+}
+
+select, button {
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#digits {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.number {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #999;
+    transition: all 0.3s;
+}
+
+.number-selected {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.number-hidden {
+    opacity: 0;
+    transform: scale(0);
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    gap: 0;
+    border: 2px solid #333;
+}
+
+.tile {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+}
+
+.tile-start {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.horizontal-line {
+    border-bottom: 2px solid #333 !important;
+}
+
+.vertical-line {
+    border-right: 2px solid #333 !important;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+}
+
+.highlight-number {
+    background-color: #b3e5fc;
+}
+
+.selected-cell {
+    background-color: #a5d6a7 !important;
+}
+
+.selected-number-cell {
+    background-color: #81c784 !important;
+}
+
+.error {
+    color: #f44336;
+}
+
+.error-limit {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.game-over {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.correct-cell {
+    color: #2e7d32;
+    font-weight: bold;
+}
+#logo{
+    width: 100px;
+}
