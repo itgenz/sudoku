@@ -261,23 +261,17 @@ function selectTile(row, col, tile) {
     
     if (game.selectedNumber !== null && !tile.classList.contains('tile-start')) {
         if (game.solution[row][col] === game.selectedNumber) {
-            // Điền đúng
-            const oldValue = tile.textContent;
             tile.textContent = game.selectedNumber;
             tile.classList.remove('error');
             tile.classList.add('correct-cell');
             game.correctCells.add(`${row}-${col}`);
             
-            // Chỉ kiểm tra số hoàn thành nếu giá trị ô thay đổi
-            if (oldValue !== tile.textContent) {
-                checkNumberCompletion(game.selectedNumber);
-            }
+            checkNumberCompletion(game.selectedNumber);
             
             if (checkWin()) {
                 endGame(true);
             }
         } else {
-            // Điền sai - không thay đổi trạng thái số lượng
             tile.textContent = game.selectedNumber;
             tile.classList.add('error');
             game.errors++;
@@ -286,8 +280,6 @@ function selectTile(row, col, tile) {
             if (game.errors >= game.maxErrors) {
                 endGame(false);
             }
-            
-            // Không gọi checkNumberCompletion() khi điền sai
         }
     }
 }
@@ -296,10 +288,7 @@ function checkNumberCompletion(number) {
     let count = 0;
     for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
-            const tileId = `tile-${row}-${col}`;
-            const tile = document.getElementById(tileId);
-            
-            // Chỉ đếm ô đúng hoặc ô mặc định
+            const tile = document.getElementById(`tile-${row}-${col}`);
             if (parseInt(tile.textContent) === number && 
                 (game.correctCells.has(`${row}-${col}`) || tile.classList.contains('tile-start'))) {
                 count++;
@@ -319,6 +308,7 @@ function checkNumberCompletion(number) {
         document.getElementById(`num-${number}`).classList.remove('number-hidden');
     }
 }
+
 function updateErrorDisplay() {
     if (game.difficulty === 1) {
         document.getElementById('errors').textContent = `Lỗi: ${game.errors}/∞`;
